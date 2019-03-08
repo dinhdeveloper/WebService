@@ -2,29 +2,29 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="HinhNen">
   <DataContextMoniker Name="/HinhNenDataContext" />
   <nestedChildShapes>
-    <classShape Id="2b103d18-05c3-4d67-804c-665bbddb31c2" absoluteBounds="0.75, 3.75, 2, 1.5785953776041666">
+    <classShape Id="eb29131f-5fcd-4758-82b1-b606508eaecd" absoluteBounds="0.75, 3.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/HinhNenDataContext/Admin" />
       <nestedChildShapes>
-        <elementListCompartment Id="2bcc0b45-a363-4d97-b782-1d80bce05421" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6fbcdd90-d6bc-48c4-a76c-b2ef5e8e288d" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5d11b0f4-1cbf-49e0-8212-17ade052845b" absoluteBounds="3.5, 0.875, 2, 1.5785953776041664">
-      <DataClassMoniker Name="/HinhNenDataContext/SanPham" />
-      <nestedChildShapes>
-        <elementListCompartment Id="4fc1be11-07cf-4792-ba0f-4521d4c29e7b" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="1674e6d8-bc89-4a27-8c5d-3b523573c63d" absoluteBounds="0.75, 1, 2, 1.3862939453125">
+    <classShape Id="49846b06-9903-41b0-b524-988dbc34ee70" absoluteBounds="0.75, 1.125, 2, 1.3862939453125">
       <DataClassMoniker Name="/HinhNenDataContext/LoaiSP" />
       <nestedChildShapes>
-        <elementListCompartment Id="224944e5-4be9-4daa-9d6f-49e60dcb7ac4" absoluteBounds="0.765, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="366d97b3-63f1-4ea5-a68d-d196c96d3ea5" absoluteBounds="0.765, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 1.69314697265625); (3.5 : 1.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="d7987ba2-de74-4446-9f49-8ed7e4b890fa" absoluteBounds="3.5, 0.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/HinhNenDataContext/SanPham" />
+      <nestedChildShapes>
+        <elementListCompartment Id="848d8101-74fe-4999-9642-175ae5bca134" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.81814697265625); (3.5 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/HinhNenDataContext/LoaiSP/LoaiSP_SanPham" />
       <nodes>
-        <classShapeMoniker Id="1674e6d8-bc89-4a27-8c5d-3b523573c63d" />
-        <classShapeMoniker Id="5d11b0f4-1cbf-49e0-8212-17ade052845b" />
+        <classShapeMoniker Id="49846b06-9903-41b0-b524-988dbc34ee70" />
+        <classShapeMoniker Id="d7987ba2-de74-4446-9f49-8ed7e4b890fa" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

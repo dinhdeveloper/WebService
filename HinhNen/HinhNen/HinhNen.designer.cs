@@ -33,12 +33,12 @@ namespace HinhNen
     partial void InsertAdmin(Admin instance);
     partial void UpdateAdmin(Admin instance);
     partial void DeleteAdmin(Admin instance);
-    partial void InsertSanPham(SanPham instance);
-    partial void UpdateSanPham(SanPham instance);
-    partial void DeleteSanPham(SanPham instance);
     partial void InsertLoaiSP(LoaiSP instance);
     partial void UpdateLoaiSP(LoaiSP instance);
     partial void DeleteLoaiSP(LoaiSP instance);
+    partial void InsertSanPham(SanPham instance);
+    partial void UpdateSanPham(SanPham instance);
+    partial void DeleteSanPham(SanPham instance);
     #endregion
 		
 		public HinhNenDataContext() : 
@@ -79,19 +79,19 @@ namespace HinhNen
 			}
 		}
 		
-		public System.Data.Linq.Table<SanPham> SanPhams
-		{
-			get
-			{
-				return this.GetTable<SanPham>();
-			}
-		}
-		
 		public System.Data.Linq.Table<LoaiSP> LoaiSPs
 		{
 			get
 			{
 				return this.GetTable<LoaiSP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SanPham> SanPhams
+		{
+			get
+			{
+				return this.GetTable<SanPham>();
 			}
 		}
 	}
@@ -205,181 +205,6 @@ namespace HinhNen
 					this._matKhau = value;
 					this.SendPropertyChanged("matKhau");
 					this.OnmatKhauChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SanPham")]
-	public partial class SanPham : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _maSP;
-		
-		private System.Nullable<int> _maLSP;
-		
-		private string _TenSP;
-		
-		private string _HinhSP;
-		
-		private EntityRef<LoaiSP> _LoaiSP;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnmaSPChanging(int value);
-    partial void OnmaSPChanged();
-    partial void OnmaLSPChanging(System.Nullable<int> value);
-    partial void OnmaLSPChanged();
-    partial void OnTenSPChanging(string value);
-    partial void OnTenSPChanged();
-    partial void OnHinhSPChanging(string value);
-    partial void OnHinhSPChanged();
-    #endregion
-		
-		public SanPham()
-		{
-			this._LoaiSP = default(EntityRef<LoaiSP>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maSP", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int maSP
-		{
-			get
-			{
-				return this._maSP;
-			}
-			set
-			{
-				if ((this._maSP != value))
-				{
-					this.OnmaSPChanging(value);
-					this.SendPropertyChanging();
-					this._maSP = value;
-					this.SendPropertyChanged("maSP");
-					this.OnmaSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maLSP", DbType="Int")]
-		public System.Nullable<int> maLSP
-		{
-			get
-			{
-				return this._maLSP;
-			}
-			set
-			{
-				if ((this._maLSP != value))
-				{
-					if (this._LoaiSP.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnmaLSPChanging(value);
-					this.SendPropertyChanging();
-					this._maLSP = value;
-					this.SendPropertyChanged("maLSP");
-					this.OnmaLSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSP", DbType="NVarChar(50)")]
-		public string TenSP
-		{
-			get
-			{
-				return this._TenSP;
-			}
-			set
-			{
-				if ((this._TenSP != value))
-				{
-					this.OnTenSPChanging(value);
-					this.SendPropertyChanging();
-					this._TenSP = value;
-					this.SendPropertyChanged("TenSP");
-					this.OnTenSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhSP", DbType="NVarChar(150)")]
-		public string HinhSP
-		{
-			get
-			{
-				return this._HinhSP;
-			}
-			set
-			{
-				if ((this._HinhSP != value))
-				{
-					this.OnHinhSPChanging(value);
-					this.SendPropertyChanging();
-					this._HinhSP = value;
-					this.SendPropertyChanged("HinhSP");
-					this.OnHinhSPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LoaiSP_SanPham", Storage="_LoaiSP", ThisKey="maLSP", OtherKey="maLSP", IsForeignKey=true)]
-		public LoaiSP LoaiSP
-		{
-			get
-			{
-				return this._LoaiSP.Entity;
-			}
-			set
-			{
-				LoaiSP previousValue = this._LoaiSP.Entity;
-				if (((previousValue != value) 
-							|| (this._LoaiSP.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._LoaiSP.Entity = null;
-						previousValue.SanPhams.Remove(this);
-					}
-					this._LoaiSP.Entity = value;
-					if ((value != null))
-					{
-						value.SanPhams.Add(this);
-						this._maLSP = value.maLSP;
-					}
-					else
-					{
-						this._maLSP = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("LoaiSP");
 				}
 			}
 		}
@@ -540,6 +365,205 @@ namespace HinhNen
 		{
 			this.SendPropertyChanging();
 			entity.LoaiSP = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SanPham")]
+	public partial class SanPham : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _maSP;
+		
+		private System.Nullable<int> _maLSP;
+		
+		private string _TenSP;
+		
+		private string _HinhSP;
+		
+		private int _YeuThich;
+		
+		private EntityRef<LoaiSP> _LoaiSP;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnmaSPChanging(int value);
+    partial void OnmaSPChanged();
+    partial void OnmaLSPChanging(System.Nullable<int> value);
+    partial void OnmaLSPChanged();
+    partial void OnTenSPChanging(string value);
+    partial void OnTenSPChanged();
+    partial void OnHinhSPChanging(string value);
+    partial void OnHinhSPChanged();
+    partial void OnYeuThichChanging(int value);
+    partial void OnYeuThichChanged();
+    #endregion
+		
+		public SanPham()
+		{
+			this._LoaiSP = default(EntityRef<LoaiSP>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maSP", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int maSP
+		{
+			get
+			{
+				return this._maSP;
+			}
+			set
+			{
+				if ((this._maSP != value))
+				{
+					this.OnmaSPChanging(value);
+					this.SendPropertyChanging();
+					this._maSP = value;
+					this.SendPropertyChanged("maSP");
+					this.OnmaSPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maLSP", DbType="Int")]
+		public System.Nullable<int> maLSP
+		{
+			get
+			{
+				return this._maLSP;
+			}
+			set
+			{
+				if ((this._maLSP != value))
+				{
+					if (this._LoaiSP.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnmaLSPChanging(value);
+					this.SendPropertyChanging();
+					this._maLSP = value;
+					this.SendPropertyChanged("maLSP");
+					this.OnmaLSPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSP", DbType="NVarChar(50)")]
+		public string TenSP
+		{
+			get
+			{
+				return this._TenSP;
+			}
+			set
+			{
+				if ((this._TenSP != value))
+				{
+					this.OnTenSPChanging(value);
+					this.SendPropertyChanging();
+					this._TenSP = value;
+					this.SendPropertyChanged("TenSP");
+					this.OnTenSPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhSP", DbType="NVarChar(250)")]
+		public string HinhSP
+		{
+			get
+			{
+				return this._HinhSP;
+			}
+			set
+			{
+				if ((this._HinhSP != value))
+				{
+					this.OnHinhSPChanging(value);
+					this.SendPropertyChanging();
+					this._HinhSP = value;
+					this.SendPropertyChanged("HinhSP");
+					this.OnHinhSPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YeuThich", DbType="Int NOT NULL")]
+		public int YeuThich
+		{
+			get
+			{
+				return this._YeuThich;
+			}
+			set
+			{
+				if ((this._YeuThich != value))
+				{
+					this.OnYeuThichChanging(value);
+					this.SendPropertyChanging();
+					this._YeuThich = value;
+					this.SendPropertyChanged("YeuThich");
+					this.OnYeuThichChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LoaiSP_SanPham", Storage="_LoaiSP", ThisKey="maLSP", OtherKey="maLSP", IsForeignKey=true)]
+		public LoaiSP LoaiSP
+		{
+			get
+			{
+				return this._LoaiSP.Entity;
+			}
+			set
+			{
+				LoaiSP previousValue = this._LoaiSP.Entity;
+				if (((previousValue != value) 
+							|| (this._LoaiSP.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._LoaiSP.Entity = null;
+						previousValue.SanPhams.Remove(this);
+					}
+					this._LoaiSP.Entity = value;
+					if ((value != null))
+					{
+						value.SanPhams.Add(this);
+						this._maLSP = value.maLSP;
+					}
+					else
+					{
+						this._maLSP = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("LoaiSP");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

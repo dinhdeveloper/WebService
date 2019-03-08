@@ -8,21 +8,22 @@
       <Column Name="matKhau" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SanPham" Member="SanPhams">
-    <Type Name="SanPham">
-      <Column Name="maSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="maLSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TenSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="HinhSP" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Association Name="LoaiSP_SanPham" Member="LoaiSP" ThisKey="maLSP" OtherKey="maLSP" Type="LoaiSP" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.LoaiSP" Member="LoaiSPs">
     <Type Name="LoaiSP">
       <Column Name="maLSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="tenLSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="hinhSLP" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Association Name="LoaiSP_SanPham" Member="SanPhams" ThisKey="maLSP" OtherKey="maLSP" Type="SanPham" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SanPham" Member="SanPhams">
+    <Type Name="SanPham">
+      <Column Name="maSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="maLSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenSP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HinhSP" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="YeuThich" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="LoaiSP_SanPham" Member="LoaiSP" ThisKey="maLSP" OtherKey="maLSP" Type="LoaiSP" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

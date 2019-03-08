@@ -120,6 +120,39 @@ namespace HinhNen.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        //random sản phẩm
+        [HttpGet]
+        [ActionName("randomSP")]
+        public IHttpActionResult randomSP()
+        {
+            try
+            {
+                HinhNenDataContext db = new HinhNenDataContext();
+                Random rnd = new Random();
+                var list = (from sp in db.SanPhams
+                            orderby rnd.Next()
+                            select new
+                            {
+                                sp.maSP,
+
+                                sp.HinhSP
+                            });
+                return Ok(list);
+                //var list = (from sp in db.SanPhams
+                //            select new
+                //            {
+                //                sp.maSP,
+                //                sp.TenSP,
+                //                sp.HinhSP
+                //            }).OrderBy(x => Guid.NewGuid()).Take(15);
+                //return Ok(list);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
         //thêm sản phẩm
         [HttpPost]
         [ActionName("themSP")]

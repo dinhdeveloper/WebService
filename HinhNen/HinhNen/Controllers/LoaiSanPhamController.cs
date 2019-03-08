@@ -55,7 +55,7 @@ namespace HinhNen.Controllers
                 return BadRequest(ex.Message);
             }
         }
-       //Thêm loại sản phẩm
+        //Thêm loại sản phẩm
         [HttpPost]
         [ActionName("themLSP")]
         public bool InsertSanPham([FromBody] LoaiSP lsp)
